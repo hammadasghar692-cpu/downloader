@@ -1,0 +1,3 @@
+@import "tailwindcss";
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+:focus-visible { outline: 2px solid #8b5cf6; outline-offset: 2px; }
