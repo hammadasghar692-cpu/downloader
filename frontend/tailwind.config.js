@@ -1,0 +1,1 @@
+export default { content: ["./index.html", "./src/**/*.jsx"], theme: { extend: { colors: { ink: "#0B0813", plum: "#1B1230", gold: "#D8B26A", ivory: "#F3EDE2" }, fontFamily: { display: ["Fraunces", "serif"], sans: ["Inter", "system-ui", "sans-serif"] } } } };

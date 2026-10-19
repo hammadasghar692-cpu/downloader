@@ -1,0 +1,11 @@
+CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,email TEXT UNIQUE NOT NULL,pass_hash TEXT NOT NULL,salt TEXT NOT NULL,role TEXT NOT NULL DEFAULT 'user',plan TEXT NOT NULL DEFAULT 'free',banned INTEGER NOT NULL DEFAULT 0,created_at INTEGER NOT NULL);
+CREATE TABLE plans(name TEXT PRIMARY KEY,daily_limit INTEGER NOT NULL,max_mb INTEGER NOT NULL);
+INSERT INTO plans VALUES('free',5,100),('vip',50,1000);
+CREATE TABLE jobs(id INTEGER PRIMARY KEY AUTOINCREMENT,user_id INTEGER NOT NULL,url TEXT NOT NULL,final_url TEXT,status TEXT NOT NULL,content_type TEXT,size INTEGER,message TEXT,token TEXT UNIQUE,expires_at INTEGER,created_at INTEGER NOT NULL);
+CREATE INDEX jobs_user ON jobs(user_id,created_at);
+CREATE TABLE settings(key TEXT PRIMARY KEY,value TEXT NOT NULL);
+INSERT INTO settings VALUES('maintenance','0'),('site_name','VIP Media Downloader'),('allowed_types','video/mp4,audio/mpeg,video/webm,image/jpeg,image/png,image/webp,image/gif');
+CREATE TABLE audit_logs(id INTEGER PRIMARY KEY AUTOINCREMENT,actor INTEGER,action TEXT,detail TEXT,created_at INTEGER);
+CREATE TABLE error_logs(id INTEGER PRIMARY KEY AUTOINCREMENT,message TEXT,created_at INTEGER);
+CREATE TABLE abuse_reports(id INTEGER PRIMARY KEY AUTOINCREMENT,user_id INTEGER,url TEXT,reason TEXT,created_at INTEGER);
+CREATE TABLE rate_limits(key TEXT,win INTEGER,count INTEGER,PRIMARY KEY(key,win));

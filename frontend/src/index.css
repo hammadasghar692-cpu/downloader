@@ -1,0 +1,7 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{background:radial-gradient(1200px 600px at 50% -10%,#2a1b4a 0%,#0B0813 60%) fixed;color:#F3EDE2;font-family:Inter,system-ui,sans-serif}
+.card{@apply rounded-2xl border border-gold/20 bg-plum/70 backdrop-blur p-5}
+.btn{@apply rounded-xl bg-gradient-to-r from-gold to-[#f0d9a0] px-5 py-3 font-semibold text-ink disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ivory}
+.btn2{@apply rounded-xl border border-gold/40 px-4 py-2 text-sm hover:bg-gold/10}
+.inp{@apply w-full rounded-xl border border-gold/25 bg-ink/80 px-4 py-3 outline-none focus:border-gold}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
